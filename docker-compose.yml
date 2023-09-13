@@ -1,0 +1,27 @@
+version: '1'
+
+services:
+  server:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/var/www/html/
+    ports:
+      - 8000:80
+  db:
+    container_name: db
+    image: mysql:5.7
+    volumes:
+      - ./db/init.sql:/var/www/sql/init.sql
+    command: --init-file /var/www/sql/init.sql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: text
+      MYSQL_USER: User
+      MYSQL_PASSWORD: 123456789
+    ports:
+      - "9906:3306"
