@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("db", "user", null, "fumo");
+$mysqli = new mysqli("db", "user", "password", "fumo");
 $result = $mysqli->query("DELETE FROM fumos LIMIT 1");
 ?>
 <script>

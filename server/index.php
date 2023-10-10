@@ -19,12 +19,12 @@
 <h1 style="font-family: 'Comic Sans MS'; font-style: italic">мЯгКиЕ ИгРуШкИ</h1>
 <div style="overflow-y: scroll; max-height: 300px">
 <table>
-    <tr><th>id</th><th>name</th><th>cost</th></tr>
+    <tr><th>fumo_id</th><th>name</th><th>cost</th></tr>
 <?php
-$mysqli = new mysqli("db", "user", null, "fumo");
+$mysqli = new mysqli("db", "user", "password", "fumo");
 $result = $mysqli->query("SELECT * FROM fumos");
 foreach ($result as $row){
-    echo "<tr><td>{$row['id']}</td><td>{$row['name']}</td><td>{$row['cost']}</td></tr>";
+    echo "<tr><td>{$row['fumo_id']}</td><td>{$row['name']}</td><td>{$row['cost']}</td></tr>";
 }
 ?>
 </table>
