@@ -78,7 +78,6 @@ else if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $query = "DELETE FROM fumos WHERE fumo_id = $fumo_id";
         $mysqli->query($query);
         echo json_encode(["message" => "Fumo deleted successfully"]);
-        }
     } else {
         echo json_encode(["message" => "Invalid request. Please provide a fumo_id."]);
     }
