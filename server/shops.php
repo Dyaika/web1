@@ -1,7 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css"/>
-<style>
+    <style>
         #cringe a {
 	    color: white;
             width: 55px;
@@ -46,24 +49,31 @@
         }
     </style>
 </head>
+
 <body>
-<h1 style="font-family: 'Comic Sans MS'; font-style: italic">мЯгКиЕ ИгРуШкИ</h1>
-<div style="overflow-y: scroll; max-height: 300px">
-<table>
-    <tr><th>fumo_id</th><th>name</th><th>cost</th></tr>
-<?php
-$mysqli = new mysqli("db", "user", "password", "fumo");
-$result = $mysqli->query("SELECT * FROM fumos");
-foreach ($result as $row){
-    echo "<tr><td>{$row['fumo_id']}</td><td>{$row['name']}</td><td>{$row['cost']}</td></tr>";
-}
-?>
-</table>
-</div>
+    <h1 style="font-family: 'Comic Sans MS'; font-style: italic">Магазины</h1>
+    <div class="scrollable-container">
+        <table>
+            <tr>
+                <th>shop_id</th>
+                <th>address</th>
+                <th>opening_time</th>
+                <th>closing_time</th>
+            </tr>
+            <?php
+            $mysqli = new mysqli("db", "user", "password", "fumo");
+            $result = $mysqli->query("SELECT * FROM shops");
+            foreach ($result as $row){
+                echo "<tr><td>{$row['shop_id']}</td><td>{$row['address']}</td><td>{$row['opening_time']}</td><td>{$row['closing_time']}</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
     <footer id="cringe">
-        <a href="/shops.php">Магазины</a>
+        <a href="/index.php">Игрушки</a>
         <a href="/info.html">О нас</a>
         <a href="/delivery.html">Додоставка</a>
     </footer>
 </body>
+
 </html>
